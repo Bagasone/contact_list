@@ -5,15 +5,25 @@ const useContacts = () => {
     JSON.parse(localStorage.getItem("contacts")) || [],
   );
 
-  const addContact = (contacts) => {
-    setContacts((prev) => [...prev, contacts]);
+  const addContact = ({ name, phone, profile }) => {
+    const contact = {
+      id: crypto.randomUUID(),
+      name,
+      phone,
+      profile,
+    };
+    setContacts((prev) => [...prev, contact]);
+  };
+
+  const deleteContact = (id) => {
+    setContacts((prev) => prev.filter((contact) => contact.id !== id));
   };
 
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
 
-  return { contacts, addContact };
+  return { contacts, addContact, deleteContact };
 };
 
 export default useContacts;

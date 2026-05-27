@@ -1,6 +1,6 @@
-import { Phone } from "lucide-react";
+import { Trash2 } from "lucide-react";
 
-const Card = ({ name, phone, profile }) => {
+const Card = ({ handleDelete, name, phone, profile, id }) => {
   return (
     <div className="neo-sm flex justify-between items-center gap-5 px-3 py-1">
       <div className="overflow-hidden">
@@ -14,9 +14,11 @@ const Card = ({ name, phone, profile }) => {
         <div className="font-head text-lg uppercase">{name}</div>
         <div className="font-medium text-base">{phone}</div>
       </div>
-      <div className="neo-sm flex justify-center items-center w-10 h-10">
-        <Phone />
-      </div>
+      <button
+        onClick={() => handleDelete(id)}
+        className="neo-sm flex justify-center items-center w-10 h-10 text-rose-800 cursor-pointer">
+        <Trash2 />
+      </button>
     </div>
   );
 };
