@@ -1,1 +1,41 @@
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+:root {
+  --font-head: "Archivo Black", sans-serif;
+  --font-body: "Epilogue", sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-head);
+}
+
+@theme {
+  --font-head: var(--font-head);
+  --font-body: var(--font-body);
+}
+
+@layer components {
+  .container {
+    @apply flex items-center gap-1;
+  }
+}
+
+@utility neo-sm {
+  @apply border-2 rounded-md shadow-[-3px_3px_0px_0px];
+}
+@utility neo-md {
+  @apply border-2 rounded-md shadow-[-5px_5px_0px_1px];
+}
+@utility neo-lg {
+  @apply border-4 rounded-md shadow-[-7px_7px_0px_2px];
+}
+@utility neo-xl {
+  @apply border-4 rounded-md shadow-[-9px_9px_0px_3px];
+}
